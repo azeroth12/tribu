@@ -19,7 +19,7 @@ from sqlalchemy.orm import Session
 from app.core import task_service
 from app.core.clock import utcnow
 from app.core.reminder_text import reminder_text
-from app.models import Membership, ReminderSnooze, User
+from app.models import MealPlan, Membership, ReminderSnooze, ShoppingList, User
 from app.security import JWT_ALG, JWT_SECRET
 
 TOKEN_TYPE = "notification_action"
@@ -30,6 +30,8 @@ SNOOZE_DELAY = timedelta(hours=1)
 REMINDER_ACTIONS: dict[str, tuple[str, ...]] = {
     "task": ("done", "snooze"),
     "event": ("snooze",),
+    # A meal whose ingredients are not on the list yet: "Add to list".
+    "meal_plan": ("shopping",),
 }
 
 
@@ -172,4 +174,32 @@ def apply_action(db: Session, token: str, action: str) -> dict:
         db.commit()
         return {"status": "ok", "action": action, "remind_at": remind_at.isoformat()}
 
+    if action == "shopping" and payload["src"] == "meal_plan":
+        return _add_meal_to_list(db, user, member, payload["sid"])
+
     raise NotificationActionError("ACTION_NOT_ALLOWED", 400)
+
+
+def _add_meal_to_list(db: Session, user: User, member: Membership, plan_id: int) -> dict:
+    """Puts what a meal still needs on the family's first shopping list."""
+    # The meal plan router owns the ingredient rules; imported here to keep
+    # the core free of router imports at load time.
+    from app.modules.meal_plans_router import add_meal_ingredients, missing_meal_ingredients
+
+    if not member.is_adult:
+        raise NotificationActionError("ACTION_NOT_ALLOWED", 403)
+    plan = (
+        db.query(MealPlan)
+        .filter(MealPlan.id == plan_id, MealPlan.family_id == member.family_id)
+        .first()
+    )
+    shopping_list = (
+        db.query(ShoppingList)
+        .filter(ShoppingList.family_id == member.family_id)
+        .order_by(ShoppingList.created_at.asc(), ShoppingList.id.asc())
+        .first()
+    )
+    if plan is None or shopping_list is None:
+        raise NotificationActionError("ACTION_GONE", 404)
+    added = add_meal_ingredients(db, plan, shopping_list, user, missing_meal_ingredients(db, plan))
+    return {"status": "ok", "action": "shopping", "added_count": len(added), "list_id": shopping_list.id}

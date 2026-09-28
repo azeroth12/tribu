@@ -18,8 +18,8 @@ from app.core.notification_destinations import EligibleReminderUser, dispatch_fa
 from app.core.recurrence import expand_event, load_series_changes
 from app.database import SessionLocal
 from app.models import (
-    CalendarEvent, CalendarSubscription, FamilyBirthday, Membership, Notification,
-    NotificationPreference, NotificationSentLog, ReminderSnooze, Task,
+    CalendarEvent, CalendarSubscription, FamilyBirthday, MealPlan, Membership, Notification,
+    NotificationPreference, NotificationSentLog, ReminderSnooze, ShoppingList, Task,
 )
 
 logger = logging.getLogger(__name__)
@@ -29,6 +29,10 @@ NOTIFICATION_JOB_ID = "check_notifications"
 CALENDAR_SUBSCRIPTION_REFRESH_JOB_ID = "refresh_calendar_subscriptions"
 BACKUP_SCHEDULE_SYNC_JOB_ID = "sync_backup_schedule"
 DST_TRANSITION_BUFFER = timedelta(hours=3)
+# Meal reminders go out from this hour of the evening before, naming at most
+# this many missing ingredients.
+MEAL_REMINDER_HOUR = 17
+MEAL_REMINDER_ITEMS = 4
 
 _scheduler: BackgroundScheduler | None = None
 
@@ -529,7 +533,12 @@ def _check_notifications():
                     trigger_key,
                 )
 
-        # 4. Reminders someone asked to hear about again (Tribu 2.0, N-2)
+        # 4. Tomorrow's meals whose ingredients are not on a list yet
+        #    (Tribu 2.0, N-2): in the evening, with an "Add to list" button.
+        if now.hour >= MEAL_REMINDER_HOUR:
+            deliver_meal_reminders(db, tomorrow=tomorrow, user_families=user_families, deliver=deliver)
+
+        # 5. Reminders someone asked to hear about again (Tribu 2.0, N-2)
         snoozed_users = deliver_snoozed_reminders(db, now=utcnow(), local_now=now, get_pref=get_pref)
 
         db.commit()
@@ -547,6 +556,51 @@ def _check_notifications():
         logger.exception("Notification check failed")
     finally:
         db.close()
+
+
+def _meal_trigger_key(plan_id: int, plan_date) -> str:
+    return f"meal:{plan_id}:{plan_date.isoformat()}"
+
+
+def deliver_meal_reminders(db, *, tomorrow, user_families: dict[int, list[int]], deliver) -> None:
+    """Tells the grown-ups what tomorrow's meals still need from the shop."""
+    from app.modules.meal_plans_router import missing_meal_ingredients
+
+    adults = {
+        (member.user_id, member.family_id)
+        for member in db.query(Membership).filter(Membership.is_adult.is_(True)).all()
+    }
+    family_ids = {fid for fids in user_families.values() for fid in fids}
+    if not family_ids:
+        return
+    plans = (
+        db.query(MealPlan)
+        .filter(MealPlan.family_id.in_(family_ids), MealPlan.plan_date == tomorrow)
+        .order_by(MealPlan.id)
+        .all()
+    )
+    has_list = {
+        fid for (fid,) in db.query(ShoppingList.family_id).filter(ShoppingList.family_id.in_(family_ids)).distinct()
+    }
+    for plan in plans:
+        if plan.family_id not in has_list:
+            continue
+        missing = missing_meal_ingredients(db, plan)
+        if not missing:
+            continue
+        items = ", ".join(entry["name"].strip() for entry in missing[:MEAL_REMINDER_ITEMS])
+        if len(missing) > MEAL_REMINDER_ITEMS:
+            items += ", …"
+        for uid, fam_ids in user_families.items():
+            if plan.family_id not in fam_ids or (uid, plan.family_id) not in adults:
+                continue
+            deliver(
+                uid, plan.family_id, "meal_reminder",
+                plan.meal_name,
+                lambda lang, items=items: reminder_text(lang, "meal_missing", items=items),
+                "/meal_plans", "meal_plan", plan.id,
+                _meal_trigger_key(plan.id, tomorrow),
+            )
 
 
 def deliver_snoozed_reminders(db, *, now: datetime, local_now: datetime, get_pref) -> set[int]:

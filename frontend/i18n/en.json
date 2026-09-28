@@ -300,6 +300,8 @@
   "push_category_shopping_changes_desc": "Shopping list updates when you want extra visibility.",
   "push_category_meal_plan_changes": "Meal plan changes",
   "push_category_meal_plan_changes_desc": "Updates to planned meals.",
+  "push_category_meal_reminders": "Meal reminders",
+  "push_category_meal_reminders_desc": "The evening before a planned meal, what is not on the shopping list yet.",
   "push_category_family_changes": "Family changes",
   "push_category_family_changes_desc": "Important household/member updates.",
   "aria.delete_notification": "Delete notification",

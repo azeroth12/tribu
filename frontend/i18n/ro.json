@@ -280,6 +280,8 @@
   "push_category_shopping_changes_desc": "Lista de cumpărături se actualizează atunci când doriți o vizibilitate suplimentară.",
   "push_category_meal_plan_changes": "Schimbări ale planului de masă",
   "push_category_meal_plan_changes_desc": "Actualizări ale meselor planificate.",
+  "push_category_meal_reminders": "Mementouri pentru mese",
+  "push_category_meal_reminders_desc": "Cu o seară înainte de o masă planificată: ce lipsește încă de pe lista de cumpărături.",
   "push_category_family_changes": "Schimbări în familie",
   "push_category_family_changes_desc": "Actualizări importante pentru gospodărie/membri.",
   "aria.delete_notification": "Ștergeți notificarea",

@@ -278,6 +278,8 @@
   "push_category_shopping_changes_desc": "Pirkinių sąrašas atnaujinamas, kai norite papildomo matomumo.",
   "push_category_meal_plan_changes": "Maitinimo plano pokyčiai",
   "push_category_meal_plan_changes_desc": "Suplanuotų patiekalų atnaujinimai.",
+  "push_category_meal_reminders": "Priminimai apie patiekalus",
+  "push_category_meal_reminders_desc": "Vakare prieš suplanuotą patiekalą: ko dar trūksta pirkinių sąraše.",
   "push_category_family_changes": "Šeimos pokyčiai",
   "push_category_family_changes_desc": "Svarbūs namų ūkio/narių naujienos.",
   "aria.delete_notification": "Ištrinti pranešimą",

@@ -279,6 +279,8 @@
   "push_category_shopping_changes_desc": "Inköpslistan uppdateras när du vill ha extra synlighet.",
   "push_category_meal_plan_changes": "Måltider ändras",
   "push_category_meal_plan_changes_desc": "Uppdateringar av planerade måltider.",
+  "push_category_meal_reminders": "Måltidspåminnelser",
+  "push_category_meal_reminders_desc": "Kvällen före en planerad måltid: det som ännu saknas på inköpslistan.",
   "push_category_family_changes": "Familjeförändringar",
   "push_category_family_changes_desc": "Viktiga hushålls-/medlemsuppdateringar.",
   "aria.delete_notification": "Ta bort avisering",

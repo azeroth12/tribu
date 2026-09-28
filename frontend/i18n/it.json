@@ -279,6 +279,8 @@
   "push_category_shopping_changes_desc": "La lista della spesa si aggiorna quando desideri maggiore visibilità.",
   "push_category_meal_plan_changes": "Cambiamenti nel piano dei pasti",
   "push_category_meal_plan_changes_desc": "Aggiornamenti ai pasti programmati.",
+  "push_category_meal_reminders": "Promemoria dei pasti",
+  "push_category_meal_reminders_desc": "La sera prima di un pasto pianificato, ciò che manca ancora nella lista della spesa.",
   "push_category_family_changes": "Cambiamenti familiari",
   "push_category_family_changes_desc": "Aggiornamenti importanti della famiglia/membro.",
   "aria.delete_notification": "Elimina notifica",

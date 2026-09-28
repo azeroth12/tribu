@@ -279,6 +279,8 @@
   "push_category_shopping_changes_desc": "Η λίστα αγορών ενημερώνεται όταν θέλετε επιπλέον προβολή.",
   "push_category_meal_plan_changes": "Αλλάζει το πρόγραμμα διατροφής",
   "push_category_meal_plan_changes_desc": "Ενημερώσεις για τα προγραμματισμένα γεύματα.",
+  "push_category_meal_reminders": "Υπενθυμίσεις γευμάτων",
+  "push_category_meal_reminders_desc": "Το βράδυ πριν από ένα προγραμματισμένο γεύμα: ό,τι λείπει ακόμα από τη λίστα αγορών.",
   "push_category_family_changes": "Οικογενειακές αλλαγές",
   "push_category_family_changes_desc": "Σημαντικές ενημερώσεις νοικοκυριού/μελών.",
   "aria.delete_notification": "Διαγραφή ειδοποίησης",

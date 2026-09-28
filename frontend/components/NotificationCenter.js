@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Bell, CalendarDays, CheckSquare, Cake, Trash2, CheckCheck, X } from 'lucide-react';
+import { Bell, CalendarDays, CheckSquare, Cake, Trash2, CheckCheck, Utensils, X } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 import { t, tc } from '../lib/i18n';
 import * as api from '../lib/api';
@@ -10,6 +10,7 @@ const TYPE_ICONS = {
   event_reminder: CalendarDays,
   task_due: CheckSquare,
   birthday: Cake,
+  meal_reminder: Utensils,
   system: Bell,
 };
 
