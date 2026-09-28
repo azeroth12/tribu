@@ -7,9 +7,9 @@ import { apiConvertQuickCapture, apiDismissQuickCapture, apiGetEvents, apiListMe
 import { t } from '../../lib/i18n';
 import { getMemberColor } from '../../lib/member-colors';
 import { buildToday } from '../../lib/today/buildToday';
+import { peekHandOff, takeHandOff } from '../../lib/handoff';
 import MemberAvatar from '../MemberAvatar';
 import RewardsDashboardWidget from '../RewardsDashboardWidget';
-import HouseholdActivityFeed from '../HouseholdActivityFeed';
 import { SetupChecklist, useSetupChecklist } from './SetupChecklist';
 
 const DAYS = 7;
@@ -176,7 +176,7 @@ function countOpenShopping(lists) {
 // the week ahead in a line per day and hints only when they help.
 export default function TodayView({ onOpenCapture } = {}) {
   const {
-    summary, me, members = [], events = [], shoppingLists, mealPlans = [], activity = [], quickCaptureInbox, familyId,
+    summary, me, members = [], events = [], shoppingLists, mealPlans = [], quickCaptureInbox, familyId,
     families, setActiveView, messages, lang, timeFormat, isChild, isAdmin, demoMode,
     loadQuickCaptureInbox, loadTasks, loadShoppingLists,
   } = useApp();
@@ -184,7 +184,9 @@ export default function TodayView({ onOpenCapture } = {}) {
   const now = useCurrentMinute();
   const today = isoDate(now);
   const locale = lang || 'en';
-  const [memberId, setMemberId] = useState(null);
+  // The family hub opens someone's day.
+  const [memberId, setMemberId] = useState(() => peekHandOff('today_member') ?? null);
+  useEffect(() => { takeHandOff('today_member'); }, []);
   const [setupOpen, setSetupOpen] = useState(false);
   const [range, setRange] = useState({ key: null, events: [] });
   const [meals, setMeals] = useState({ key: null, items: [] });
@@ -396,7 +398,6 @@ export default function TodayView({ onOpenCapture } = {}) {
           </section>
         )}
         <RewardsDashboardWidget />
-        {activity.length > 0 && <HouseholdActivityFeed activity={activity} messages={messages} lang={lang} limit={3} dashboard />}
       </aside>
     </div>
   );

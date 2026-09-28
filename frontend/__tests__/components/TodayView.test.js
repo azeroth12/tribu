@@ -2,6 +2,7 @@ import { act, fireEvent, render, screen, waitFor, within } from '@testing-librar
 import '@testing-library/jest-dom';
 import messages from '../../i18n/en.json';
 import TodayView from '../../components/today/TodayView';
+import { handOff, peekHandOff } from '../../lib/handoff';
 import { apiConvertQuickCapture, apiGetEvents, apiGetSetupChecklist, apiListMealPlans } from '../../lib/api';
 
 let mockApp = {};
@@ -130,6 +131,15 @@ describe('TodayView', () => {
     expect(within(day).queryByText('Sign the letter')).not.toBeInTheDocument();
     expect(screen.queryByText('Still open')).not.toBeInTheDocument();
     expect(screen.queryByRole('region', { name: 'This week' })).toHaveTextContent("Grandpa's birthday");
+  });
+
+  it('opens on the person chosen in the family hub', async () => {
+    handOff('today_member', 3);
+    await renderToday();
+    expect(screen.getByRole('button', { name: /Lena/ })).toHaveAttribute('aria-pressed', 'true');
+    const day = screen.getByRole('region', { name: 'Today' });
+    expect(within(day).queryByText('Dentist')).not.toBeInTheDocument();
+    expect(peekHandOff('today_member')).toBeUndefined();
   });
 
   it('completes tasks through the undoable task flow', async () => {
