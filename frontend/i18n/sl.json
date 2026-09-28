@@ -278,6 +278,8 @@
   "push_category_shopping_changes_desc": "Nakupovalni seznam se posodobi, ko želite dodatno vidnost.",
   "push_category_meal_plan_changes": "Spremembe načrta obrokov",
   "push_category_meal_plan_changes_desc": "Posodobitve načrtovanih obrokov.",
+  "push_category_meal_reminders": "Opomniki za obroke",
+  "push_category_meal_reminders_desc": "Večer pred načrtovanim obrokom: kaj še manjka na nakupovalnem seznamu.",
   "push_category_family_changes": "Družinske spremembe",
   "push_category_family_changes_desc": "Pomembne posodobitve gospodinjstva/članov.",
   "aria.delete_notification": "Izbriši obvestilo",

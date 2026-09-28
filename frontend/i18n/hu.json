@@ -278,6 +278,8 @@
   "push_category_shopping_changes_desc": "A bevásárlólista frissül, ha extra láthatóságot szeretne.",
   "push_category_meal_plan_changes": "Étkezési terv változás",
   "push_category_meal_plan_changes_desc": "Frissítések a tervezett étkezésekhez.",
+  "push_category_meal_reminders": "Étkezési emlékeztetők",
+  "push_category_meal_reminders_desc": "Egy tervezett étkezés előtti estén: ami még hiányzik a bevásárlólistáról.",
   "push_category_family_changes": "Családi változások",
   "push_category_family_changes_desc": "Fontos frissítések a háztartásról/tagról.",
   "aria.delete_notification": "Értesítés törlése",

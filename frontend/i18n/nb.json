@@ -279,6 +279,8 @@
   "push_category_shopping_changes_desc": "Handlelisten oppdateres når du ønsker ekstra synlighet.",
   "push_category_meal_plan_changes": "Endringer i måltidsplanen",
   "push_category_meal_plan_changes_desc": "Oppdateringer til planlagte måltider.",
+  "push_category_meal_reminders": "Påminnelser om måltider",
+  "push_category_meal_reminders_desc": "Kvelden før et planlagt måltid: det som ennå mangler på handlelisten.",
   "push_category_family_changes": "Familieforandringer",
   "push_category_family_changes_desc": "Viktige husholdnings-/medlemsoppdateringer.",
   "aria.delete_notification": "Slett varsel",

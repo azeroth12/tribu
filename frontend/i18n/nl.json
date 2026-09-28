@@ -278,6 +278,8 @@
   "push_category_shopping_changes_desc": "Boodschappenlijst wordt bijgewerkt wanneer u extra zichtbaarheid wilt.",
   "push_category_meal_plan_changes": "Wijzigingen in het maaltijdplan",
   "push_category_meal_plan_changes_desc": "Updates van geplande maaltijden.",
+  "push_category_meal_reminders": "Maaltijdherinneringen",
+  "push_category_meal_reminders_desc": "De avond voor een geplande maaltijd: wat nog niet op het boodschappenlijstje staat.",
   "push_category_family_changes": "Veranderingen in het gezin",
   "push_category_family_changes_desc": "Belangrijke updates van huishoudens/leden.",
   "aria.delete_notification": "Melding verwijderen",

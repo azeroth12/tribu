@@ -278,6 +278,8 @@
   "push_category_shopping_changes_desc": "Nuashonraítear liosta siopadóireachta nuair is mian leat infheictheacht bhreise.",
   "push_category_meal_plan_changes": "Athruithe plean béile",
   "push_category_meal_plan_changes_desc": "Nuashonruithe ar bhéilí pleanáilte.",
+  "push_category_meal_reminders": "Meabhrúcháin béile",
+  "push_category_meal_reminders_desc": "An oíche roimh bhéile pleanáilte: an méid nach bhfuil ar an liosta siopadóireachta fós.",
   "push_category_family_changes": "Athruithe teaghlaigh",
   "push_category_family_changes_desc": "Nuashonruithe tábhachtacha teaghlaigh/ball.",
   "aria.delete_notification": "Scrios fógra",

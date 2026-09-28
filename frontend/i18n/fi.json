@@ -279,6 +279,8 @@
   "push_category_shopping_changes_desc": "Ostoslista päivittyy, kun haluat lisää näkyvyyttä.",
   "push_category_meal_plan_changes": "Ruokailusuunnitelman muutokset",
   "push_category_meal_plan_changes_desc": "Päivityksiä suunniteltuihin aterioihin.",
+  "push_category_meal_reminders": "Ateriamuistutukset",
+  "push_category_meal_reminders_desc": "Suunniteltua ateriaa edeltävänä iltana: mitä ostoslistalta vielä puuttuu.",
   "push_category_family_changes": "Perheen muutokset",
   "push_category_family_changes_desc": "Tärkeitä kotitalous-/jäsenpäivityksiä.",
   "aria.delete_notification": "Poista ilmoitus",

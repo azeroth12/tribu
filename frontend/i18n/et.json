@@ -279,6 +279,8 @@
   "push_category_shopping_changes_desc": "Ostunimekirja värskendatakse, kui soovite rohkem nähtavust.",
   "push_category_meal_plan_changes": "Toitumiskava muudatused",
   "push_category_meal_plan_changes_desc": "Plaanitud söögikordade uuendused.",
+  "push_category_meal_reminders": "Toidukordade meeldetuletused",
+  "push_category_meal_reminders_desc": "Planeeritud söögikorra eelõhtul: mis ostunimekirjast veel puudub.",
   "push_category_family_changes": "Perekonna muutused",
   "push_category_family_changes_desc": "Olulised leibkonna/liikmete uuendused.",
   "aria.delete_notification": "Kustuta teatis",

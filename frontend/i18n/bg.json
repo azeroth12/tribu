@@ -279,6 +279,8 @@
   "push_category_shopping_changes_desc": "Списъкът за пазаруване се актуализира, когато искате допълнителна видимост.",
   "push_category_meal_plan_changes": "Промени в плана за хранене",
   "push_category_meal_plan_changes_desc": "Актуализации на планираните хранения.",
+  "push_category_meal_reminders": "Напомняния за хранене",
+  "push_category_meal_reminders_desc": "Вечерта преди планирано хранене: какво още липсва в списъка за пазаруване.",
   "push_category_family_changes": "Семейни промени",
   "push_category_family_changes_desc": "Важни актуализации за домакинство/членове.",
   "aria.delete_notification": "Изтриване на известието",

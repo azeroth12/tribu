@@ -278,6 +278,8 @@
   "push_category_shopping_changes_desc": "Aktualizacje listy zakupów, gdy chcesz większej widoczności.",
   "push_category_meal_plan_changes": "Zmiany planu posiłków",
   "push_category_meal_plan_changes_desc": "Aktualizacje zaplanowanych posiłków.",
+  "push_category_meal_reminders": "Przypomnienia o posiłkach",
+  "push_category_meal_reminders_desc": "Wieczorem przed zaplanowanym posiłkiem: czego jeszcze brakuje na liście zakupów.",
   "push_category_family_changes": "Zmiany rodzinne",
   "push_category_family_changes_desc": "Ważne aktualizacje domu/członków.",
   "aria.delete_notification": "Usuń powiadomienie",

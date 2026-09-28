@@ -278,6 +278,8 @@
   "push_category_shopping_changes_desc": "Nákupný zoznam sa aktualizuje, keď chcete extra viditeľnosť.",
   "push_category_meal_plan_changes": "Zmeny stravovacieho plánu",
   "push_category_meal_plan_changes_desc": "Aktualizácie plánovaných jedál.",
+  "push_category_meal_reminders": "Pripomienky jedál",
+  "push_category_meal_reminders_desc": "Večer pred plánovaným jedlom: čo ešte chýba na nákupnom zozname.",
   "push_category_family_changes": "Rodinné zmeny",
   "push_category_family_changes_desc": "Dôležité aktualizácie domácnosti/členov.",
   "aria.delete_notification": "Odstrániť upozornenie",

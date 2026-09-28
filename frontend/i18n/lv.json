@@ -279,6 +279,8 @@
   "push_category_shopping_changes_desc": "Iepirkumu saraksts tiek atjaunināts, kad vēlaties papildu redzamību.",
   "push_category_meal_plan_changes": "Izmaiņas ēdienkartē",
   "push_category_meal_plan_changes_desc": "Atjauninājumi plānotajām ēdienreizēm.",
+  "push_category_meal_reminders": "Atgādinājumi par maltītēm",
+  "push_category_meal_reminders_desc": "Vakarā pirms plānotas maltītes: kas vēl trūkst iepirkumu sarakstā.",
   "push_category_family_changes": "Ģimenes izmaiņas",
   "push_category_family_changes_desc": "Svarīgi mājsaimniecības/locekļa atjauninājumi.",
   "aria.delete_notification": "Dzēst paziņojumu",

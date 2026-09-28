@@ -299,6 +299,8 @@
   "push_category_shopping_changes_desc": "Änderungen an gemeinsamen Einkaufslisten.",
   "push_category_meal_plan_changes": "Essensplan",
   "push_category_meal_plan_changes_desc": "Änderungen an geplanten Mahlzeiten.",
+  "push_category_meal_reminders": "Essens-Erinnerungen",
+  "push_category_meal_reminders_desc": "Am Vorabend eines geplanten Essens, was noch auf der Einkaufsliste fehlt.",
   "push_category_family_changes": "Familienänderungen",
   "push_category_family_changes_desc": "Wichtige Änderungen an Mitgliedern oder Familienstatus.",
   "aria.delete_notification": "Benachrichtigung löschen",
